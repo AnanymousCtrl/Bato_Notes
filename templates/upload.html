@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload a Note</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="text" name="subject" placeholder="Enter Subject" required>
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}

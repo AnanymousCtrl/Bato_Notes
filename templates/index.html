@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Available Notes</h1>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search by subject...">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+{% for note in notes %}
+    <div>
+        <h3>{{ note.subject }}</h3>
+        <p>Downloads: {{ note.downloads }}</p>
+        <a href="{{ url_for('download', note_id=note._id) }}">Download</a>
+        <a href="{{ url_for('view_note', note_id=note._id) }}">View & Comment</a>
+    </div>
+{% endfor %}
+{% endblock %}
